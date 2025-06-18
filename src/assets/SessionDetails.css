@@ -1,0 +1,240 @@
+/* SessionDetails.css - Mobile First Approach */
+
+/* Base Styles */
+.session-details-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #001a70;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  height: 2.5rem;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav-buttons button {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-buttons button:hover {
+  background: white;
+  color: #001a70;
+}
+
+/* Session Banner */
+.session-banner {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Session Meta */
+.session-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: white;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-bottom: 1px solid #eee;
+}
+
+.session-meta span {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.session-meta strong {
+  color: #333;
+}
+
+/* Reserve Button */
+.reserve-btn {
+  background-color: #001a70;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.reserve-btn:hover {
+  background-color: #0030a0;
+}
+
+/* Message Styling */
+.message {
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.message.success {
+  background-color: #e6f7ee;
+  color: #2e7d32;
+}
+
+.message.error {
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+/* Session Description */
+.session-description {
+  background-color: white;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.session-description h3 {
+  color: #001a70;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.session-description p {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.session-description strong {
+  color: #333;
+}
+
+/* Footer */
+.footer {
+  background-color: #001a70;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin-top: auto;
+  font-size: 0.875rem;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 576px) {
+  .navbar {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .session-banner {
+    height: 16rem;
+  }
+
+  .session-meta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+  }
+
+  .reserve-btn {
+    width: auto;
+    margin-top: 0;
+  }
+
+  .session-description {
+    padding: 1.5rem 2rem;
+  }
+
+  .footer {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .session-banner {
+    height: 20rem;
+  }
+
+  .session-meta {
+    font-size: 1rem;
+    padding: 1.25rem 2rem;
+  }
+
+  .session-description {
+    padding: 2rem 3rem;
+    font-size: 1rem;
+  }
+
+  .session-description h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .session-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 2rem;
+  }
+
+  .session-meta {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+
+  .session-banner {
+    height: 24rem;
+  }
+}

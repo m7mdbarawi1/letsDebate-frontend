@@ -1,0 +1,26 @@
+.footer {
+  background-color: #001b75;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 12px 20px;
+  font-family: sans-serif;
+  font-size: 14px;
+  text-align: center;
+}
+
+.footer span {
+  margin: 5px 10px;
+  cursor: default;
+}
+
+.footer span:last-child {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer span:last-child:hover {
+  color: #ccc;
+}
