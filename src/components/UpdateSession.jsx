@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../assets/UpdateSession.css";
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 export default function UpdateSession() {
   const [form, setForm] = useState({
@@ -29,7 +30,7 @@ export default function UpdateSession() {
     }
 
     try {
-      const res = await fetch(`http://localhost:3001/api/sessions/${form.session_id}`, {
+      const res = await fetch(`${BASE_URL}/api/sessions/${form.session_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

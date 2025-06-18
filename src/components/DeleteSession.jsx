@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "../assets/DeleteSession.css";
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 export default function DeleteSession() {
   const [sessions, setSessions] = useState([]);
@@ -11,7 +12,7 @@ export default function DeleteSession() {
 
   const fetchSessions = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/sessions");
+      const res = await fetch(`${BASE_URL}/api/sessions`);
       const data = await res.json();
       setSessions(data);
     } catch (err) {
@@ -24,7 +25,7 @@ export default function DeleteSession() {
     if (!confirm) return;
 
     try {
-      const res = await fetch(`http://localhost:3001/api/sessions/${id}`, {
+      const res = await fetch(`${BASE_URL}/api/sessions/${id}`, {
         method: "DELETE",
       });
 

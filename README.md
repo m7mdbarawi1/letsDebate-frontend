@@ -51,6 +51,7 @@ cd LetsDebate-frontend
 npm install
 npm run dev
 
+http://localhost:5173
 ## Routing 
     "/" for home(index page)
     "/login" for login page

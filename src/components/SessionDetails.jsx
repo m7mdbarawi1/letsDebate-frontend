@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "../assets/SessionDetails.css";
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 export default function SessionDetails() {
   const { id } = useParams();
@@ -16,11 +17,11 @@ export default function SessionDetails() {
 
   const fetchSession = async () => {
     try {
-      const res = await fetch(`http://localhost:3001/api/sessions/${id}`);
+      const res = await fetch(`${BASE_URL}/api/sessions/${id}`);
       const data = await res.json();
       setSession(data);
 
-      const catRes = await fetch(`http://localhost:3001/api/categories/${data.category_id}`);
+      const catRes = await fetch(`${BASE_URL}/api/categories/${data.category_id}`);
       const catData = await catRes.json();
       setCategory(catData.categoryName);
     } catch {
@@ -35,7 +36,7 @@ export default function SessionDetails() {
     }
 
     try {
-      const res = await fetch("http://localhost:3001/api/reservations", {
+      const res = await fetch(`${BASE_URL}/api/reservations`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

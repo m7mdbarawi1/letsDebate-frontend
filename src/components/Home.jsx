@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../assets/Home.css";
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 export default function Home() {
   const [sessions, setSessions] = useState([]);
@@ -17,7 +18,7 @@ export default function Home() {
 
   const fetchSessions = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/sessions");
+      const res = await fetch(`${BASE_URL}/api/sessions`);
       const data = await res.json();
       setSessions(data);
     } catch {
@@ -27,7 +28,7 @@ export default function Home() {
 
   const fetchCategories = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/categories");
+      const res = await fetch(`${BASE_URL}/api/categories`);
       const data = await res.json();
       setCategories(data);
     } catch {

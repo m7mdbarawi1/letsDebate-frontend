@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../assets/MyReservations.css";
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 export default function MyReservations() {
   const [reservations, setReservations] = useState([]);
@@ -16,10 +17,10 @@ export default function MyReservations() {
 
   const fetchReservations = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/reservations");
+      const res = await fetch(`${BASE_URL}/api/reservations`);
       const allReservations = await res.json();
 
-      const sessionRes = await fetch("http://localhost:3001/api/sessions");
+      const sessionRes = await fetch(`${BASE_URL}/api/sessions`);
       const sessions = await sessionRes.json();
 
       const matched = allReservations
@@ -42,7 +43,7 @@ export default function MyReservations() {
 
   const fetchCategories = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/categories");
+      const res = await fetch(`${BASE_URL}/api/categories`);
       const data = await res.json();
       setCategories(data);
     } catch {
@@ -51,7 +52,7 @@ export default function MyReservations() {
   };
 
   const handleCancel = async (session_id) => {
-    await fetch(`http://localhost:3001/api/reservations/${user.user_id}/${session_id}`, {
+    await fetch(`${BASE_URL}/api/reservations/${user.user_id}/${session_id}`, {
       method: "DELETE",
     });
     setReservations(prev => prev.filter(r => r.session_id !== session_id));

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/Signup.css";
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 export default function Signup() {
   const [form, setForm] = useState({
@@ -17,7 +18,7 @@ export default function Signup() {
   });
 
   const [message, setMessage] = useState("");
-  const navigate = useNavigate(); // Add this
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -28,7 +29,7 @@ export default function Signup() {
     setMessage("");
 
     try {
-      const res = await fetch("http://localhost:3001/api/auth/signup", {
+      const res = await fetch(`${BASE_URL}/api/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -37,7 +38,6 @@ export default function Signup() {
       const data = await res.json();
       if (res.ok) {
         setMessage("Signup successful!");
-        // Optional: navigate to login after signup
         setTimeout(() => navigate("/"), 1000);
       } else {
         setMessage(data.message || "Signup failed");
@@ -49,12 +49,10 @@ export default function Signup() {
 
   return (
     <div className="signup-page">
-
       <main className="signup-container">
         <div className="signup-card">
           <h2>Sign up</h2>
           <form onSubmit={handleSignup}>
-            {/* all inputs same as before */}
             <label>Email</label>
             <input type="email" name="email" onChange={handleChange} required />
             <label>Password</label>

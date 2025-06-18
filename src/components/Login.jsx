@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/Login.css";
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 export default function Login({ onLogin }) {
   const [form, setForm] = useState({ email: "", password: "" });
@@ -16,7 +17,7 @@ export default function Login({ onLogin }) {
     setMessage("");
 
     try {
-      const res = await fetch("http://localhost:3001/api/auth/login", {
+      const res = await fetch(`${BASE_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),

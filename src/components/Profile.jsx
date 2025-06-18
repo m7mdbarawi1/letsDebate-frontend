@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/Profile.css";
+const BASE_URL = import.meta.env.VITE_SERVER_URL;
 
 export default function Profile({ setUser }) {
   const [form, setForm] = useState({
@@ -40,7 +41,7 @@ export default function Profile({ setUser }) {
     setMessage("");
 
     try {
-      const res = await fetch(`http://localhost:3001/api/users/${form.user_id}`, {
+      const res = await fetch(`${BASE_URL}/api/users/${form.user_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -66,10 +67,10 @@ export default function Profile({ setUser }) {
   };
 
   const handleLogout = () => {
-  localStorage.removeItem("user");
-  setUser(null);
-  navigate("/login");
-};
+    localStorage.removeItem("user");
+    setUser(null);
+    navigate("/login");
+  };
 
   const handleDelete = async () => {
     if (!form.user_id) {
@@ -78,7 +79,7 @@ export default function Profile({ setUser }) {
     }
 
     try {
-      const res = await fetch(`http://localhost:3001/api/users/${form.user_id}`, {
+      const res = await fetch(`${BASE_URL}/api/users/${form.user_id}`, {
         method: "DELETE"
       });
 

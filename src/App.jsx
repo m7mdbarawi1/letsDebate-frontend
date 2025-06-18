@@ -15,7 +15,8 @@ import NormalNavbar from "./components/NormalNavbar";
 import AdminNavbar from "./components/AdminNavbar";
 import MyReservations from "./components/MyReservations";
 import "./App.css";
-
+ const BASE_URL = import.meta.env.VITE_SERVER_URL;
+ 
 function App() {
   const [user, setUser] = useState(null);
 
