@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## LetsDebate Frontend (React + Vite)
 This is the frontend for the LetsDebate web application. The platform allows users to explore live debate sessions and reserve seats, while admins can manage those sessions. Built using React and Vite, it includes authentication, session management, and weather integration.
 
@@ -63,3 +64,7 @@ npm run dev
     "/my-reservations" for MyReservations page
 ## Authors
 Developed by: Mohammad Al Barawi
+=======
+# letsDebate-frontend
+Hello guys this is the frontend repo for the lets debate web platform that will contain all up to date features (|:-)
+>>>>>>> d4c0bdbec09ac4028bae2b58604af61b75c6abb6
