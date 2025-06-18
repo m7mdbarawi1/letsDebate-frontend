@@ -64,7 +64,3 @@ npm run dev
     "/my-reservations" for MyReservations page
 ## Authors
 Developed by: Mohammad Al Barawi
-=======
-# letsDebate-frontend
-Hello guys this is the frontend repo for the lets debate web platform that will contain all up to date features (|:-)
->>>>>>> d4c0bdbec09ac4028bae2b58604af61b75c6abb6
